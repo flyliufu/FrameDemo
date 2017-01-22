@@ -8,4 +8,10 @@
         android:id="@+id/tab_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/iv_waiting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/animator_vector_waiting"/>
 </RelativeLayout>

@@ -3,8 +3,12 @@ package com.lefu.test.utils;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.IdRes;
+import android.support.annotation.StringRes;
+import android.support.annotation.UiThread;
 import android.support.v4.content.LocalBroadcastManager;
+import android.widget.Toast;
 
+import com.lefu.test.App;
 import com.lefu.test.R;
 import com.lefu.test.common.A;
 
@@ -13,6 +17,20 @@ import com.lefu.test.common.A;
  */
 
 public class Tools {
+
+	@UiThread
+	public static Toast showToast(@StringRes int strId) {
+		Toast toast = Toast.makeText(App.getContext(), strId, Toast.LENGTH_LONG);
+		toast.show();
+		return toast;
+	}
+
+	@UiThread
+	public static Toast showToast(String string) {
+		Toast toast = Toast.makeText(App.getContext(), string, Toast.LENGTH_LONG);
+		toast.show();
+		return toast;
+	}
 
 	/**
 	 * @param context
@@ -34,7 +52,7 @@ public class Tools {
 				intent.putExtra(A.string.EXTRA_TAB_INDEX, R.id.rb_frame_item_four);
 				break;
 			default:
-				intent.putExtra(A.string.EXTRA_TAB_INDEX, R.id.rb_frame_item_one);
+				intent.putExtra(A.string.EXTRA_TAB_INDEX, index);
 				break;
 		}
 		LocalBroadcastManager.getInstance(context).sendBroadcast(intent);

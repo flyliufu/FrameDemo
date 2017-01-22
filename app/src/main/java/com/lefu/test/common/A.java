@@ -5,6 +5,7 @@ package com.lefu.test.common;
  */
 
 public class A {
+
 	public static class string {
 		/**
 		 * 主界面TAB切换时候广播
@@ -12,5 +13,10 @@ public class A {
 		public static final String BROADCAST_RECEIVER_TAB_CHANGE = "com.lefu.test.broadcast_receiver_tab_change";
 
 		public static final String EXTRA_TAB_INDEX = "extra_tab_index";
+	}
+
+	public static final class url {
+
+		public static final String NEWS_URL = "";
 	}
 }

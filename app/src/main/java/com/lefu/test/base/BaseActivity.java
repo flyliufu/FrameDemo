@@ -1,10 +1,15 @@
 package com.lefu.test.base;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.widget.TextView;
 
@@ -37,6 +42,21 @@ public abstract class BaseActivity extends AppCompatActivity {
 		setContentView(layoutResId());
 		unbinder = ButterKnife.bind(this);
 		initViews();
+	}
+
+	static {
+		AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+	}
+
+	/**
+	 * 获取 color
+	 *
+	 * @param colorId color resource id
+	 * @return A color int
+	 */
+	@ColorInt
+	public int color(@ColorRes int colorId) {
+		return ContextCompat.getColor(getBaseContext(), colorId);
 	}
 
 	@OnClick({R.id.tv_header_left_btn})

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="ic_tab1_gray" type="drawable">@drawable/ic_card_membership_gray_24dp</item>
+    <item name="ic_tab1_red" type="drawable">@drawable/ic_card_membership_red_24dp</item>
+    <item name="ic_tab2_gray" type="drawable">@drawable/ic_gift_gray_24dp</item>
+    <item name="ic_tab2_red" type="drawable">@drawable/ic_gift_red_24dp</item>
+    <item name="ic_tab3_gray" type="drawable">@drawable/ic_earth_gray_24dp</item>
+    <item name="ic_tab3_red" type="drawable">@drawable/ic_earth_red_24dp</item>
+    <item name="ic_tab4_gray" type="drawable">@drawable/ic_account_gray_24dp</item>
+    <item name="ic_tab4_red" type="drawable">@drawable/ic_account_red_24dp</item>
+    <item name="ic_waiting" type="drawable">@drawable/ic_wait_circle_24dp</item>
+</resources>
