@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.lefu.test">
 
-
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -19,6 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.main.NewsActivity"/>
+
+        <service android:name=".service.TimeoutService"/>
     </application>
 
 </manifest>

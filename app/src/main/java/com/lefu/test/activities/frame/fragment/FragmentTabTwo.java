@@ -1,10 +1,10 @@
-package com.lefu.test.activities.frame;
+package com.lefu.test.activities.frame.fragment;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lefu.test.App;
 import com.lefu.test.R;
 import com.lefu.test.base.BaseFragment;
 import com.lefu.test.bean.NewsBean;
@@ -13,8 +13,6 @@ import com.lefu.test.utils.Tools;
 import butterknife.BindView;
 import butterknife.OnClick;
 import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * @author liufu on 2017/1/7.
@@ -45,7 +43,7 @@ public class FragmentTabTwo extends BaseFragment {
 	};
 
 	@Override
-	protected void onBinderView() {
+	protected void createView(View view, Bundle savedInstanceState) {
 
 		mTvTabName.setText("2");
 	}

@@ -1,5 +1,7 @@
-package com.lefu.test.activities.frame;
+package com.lefu.test.activities.frame.fragment;
 
+import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.lefu.test.R;
@@ -17,7 +19,7 @@ public class FragmentTabThree extends BaseFragment {
 	TextView mTvTabName;
 
 	@Override
-	protected void onBinderView() {
+	protected void createView(View view, Bundle savedInstanceState) {
 		mTvTabName.setText("3");
 	}
 

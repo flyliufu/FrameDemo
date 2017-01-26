@@ -8,5 +8,4 @@
     <item name="ic_tab3_red" type="drawable">@drawable/ic_earth_red_24dp</item>
     <item name="ic_tab4_gray" type="drawable">@drawable/ic_account_gray_24dp</item>
     <item name="ic_tab4_red" type="drawable">@drawable/ic_account_red_24dp</item>
-    <item name="ic_waiting" type="drawable">@drawable/ic_wait_circle_24dp</item>
 </resources>

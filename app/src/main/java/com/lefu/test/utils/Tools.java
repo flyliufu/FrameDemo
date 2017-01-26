@@ -1,15 +1,18 @@
 package com.lefu.test.utils;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.annotation.StringRes;
 import android.support.annotation.UiThread;
+import android.support.v4.content.IntentCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.widget.Toast;
 
 import com.lefu.test.App;
 import com.lefu.test.R;
+import com.lefu.test.activities.frame.UIFrame;
 import com.lefu.test.common.A;
 
 /**
@@ -55,6 +58,7 @@ public class Tools {
 				intent.putExtra(A.string.EXTRA_TAB_INDEX, index);
 				break;
 		}
+
 		LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
 	}
 }

@@ -15,23 +15,26 @@ import butterknife.Unbinder;
  */
 
 public abstract class BaseFragment extends Fragment {
-
+	
 	private Unbinder unbinder;
-
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(getFragmentResId(), container, false);
 		unbinder = ButterKnife.bind(this, view);
-		onBinderView();
+		createView(view, savedInstanceState);
 		return view;
 	}
-
+	
 	/**
 	 * After inflater fragment view
+	 *
+	 * @param view               root view
+	 * @param savedInstanceState state
 	 */
-	protected abstract void onBinderView();
+	protected abstract void createView(View view, Bundle savedInstanceState);
 	
-
+	
 	/**
 	 * Fragment layout resource id
 	 *
@@ -39,4 +42,10 @@ public abstract class BaseFragment extends Fragment {
 	 */
 	@LayoutRes
 	protected abstract int getFragmentResId();
+	
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		unbinder.unbind();
+	}
 }

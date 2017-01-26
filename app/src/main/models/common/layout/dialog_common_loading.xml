@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:id="@+id/fl_dialog_container"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:ignore="RtlHardcoded">
+
+    <RelativeLayout
+        android:layout_width="@dimen/d300"
+        android:layout_height="@dimen/d100">
+
+        <ImageView
+            android:id="@+id/iv_circle_img"
+            android:layout_width="@dimen/d50"
+            android:layout_height="@dimen/d50"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/d15"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/avd_progress_indeterminate_circular"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/d15"
+            android:layout_toRightOf="@id/iv_circle_img"
+            android:text="@string/dialog_waiting"
+            android:textColor="@color/_333333"
+            android:textSize="@dimen/f15"/>
+
+    </RelativeLayout>
+</FrameLayout>
