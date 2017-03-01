@@ -11,8 +11,6 @@ import android.widget.TextView;
 import com.lefu.test.R;
 import com.lefu.test.base.BaseFragment;
 import com.lefu.test.common.A;
-import com.lefu.test.dialog.TimeoutDialog;
-import com.lefu.test.dialog.WaitingDialog;
 
 import butterknife.BindView;
 import butterknife.OnClick;

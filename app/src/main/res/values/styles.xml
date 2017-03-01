@@ -1,24 +1,25 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlActivated">@color/_999999</item>
-    </style>
+  <!-- Base application theme. -->
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="colorControlActivated">@color/_999999</item>
 
-    <style name="line">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/d1</item>
-        <item name="android:background">@color/_E5E5E5</item>
-    </style>
+  </style>
+
+  <style name="line">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">@dimen/d1</item>
+    <item name="android:background">@color/_E5E5E5</item>
+  </style>
 
 
-    <style name="v_line">
-        <item name="android:layout_width">@dimen/d1</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@color/_E5E5E5</item>
-    </style>
+  <style name="v_line">
+    <item name="android:layout_width">@dimen/d1</item>
+    <item name="android:layout_height">match_parent</item>
+    <item name="android:background">@color/_E5E5E5</item>
+  </style>
 </resources>

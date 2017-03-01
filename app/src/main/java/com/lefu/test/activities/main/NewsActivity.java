@@ -35,5 +35,6 @@ public class NewsActivity extends BaseActivity {
 
 	@OnClick({R.id.tv_news_content})
 	public void onClick(View v) {
+		super.onClick(v);
 	}
 }

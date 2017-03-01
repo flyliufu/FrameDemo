@@ -3,8 +3,6 @@ package com.lefu.test.base;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
@@ -19,9 +17,8 @@ import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.widget.TextView;
 
+import com.lefu.test.AppManager;
 import com.lefu.test.R;
-import com.lefu.test.common.A;
-import com.lefu.test.dialog.TimeoutDialog;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,17 +30,6 @@ import butterknife.Unbinder;
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
-
-
-	private TimeoutDialog dialog = TimeoutDialog.getInstance();
-	private BroadcastReceiver mTimeoutReceiver = new BroadcastReceiver() {
-		@Override
-		public void onReceive(Context context, Intent intent) {
-			dialog.setCancelable(false);
-			dialog.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
-			dialog.show(getSupportFragmentManager());
-		}
-	};
 
 	private Unbinder unbinder;
 
@@ -57,7 +43,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getWindow().setBackgroundDrawableResource(R.color._E5E5E5);
+
 		setContentView(layoutResId());
+		AppManager.getInstance().putActivity(this);
 		unbinder = ButterKnife.bind(this);
 
 		initViews();
@@ -121,10 +110,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+		AppManager.getInstance().remove(this);
 		if (unbinder != null) {
 			unbinder.unbind();
 		}
-		LocalBroadcastManager.getInstance(getBaseContext())
-				.unregisterReceiver(mTimeoutReceiver);
 	}
 }

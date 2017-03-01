@@ -28,82 +28,68 @@ import butterknife.OnCheckedChanged;
  */
 
 public class UIFrame extends BaseActivity {
-	@BindView(R.id.rl_frame_root)
-	RelativeLayout mRlFrameRoot;
-	@BindView(R.id.rg_bottom_navigator)
-	RadioGroup mRgNavigator;
+  @BindView(R.id.rl_frame_root) RelativeLayout mRlFrameRoot;
+  @BindView(R.id.rg_bottom_navigator) RadioGroup mRgNavigator;
 
-	private BroadcastReceiver mTabChangeReceiver = new BroadcastReceiver() {
-		@Override
-		public void onReceive(Context context, Intent intent) {
-			mRgNavigator.check(intent.getIntExtra(A.string.EXTRA_TAB_INDEX, R.id.rb_frame_item_one));
-		}
-	};
+  private BroadcastReceiver mTabChangeReceiver = new BroadcastReceiver() {
+    @Override public void onReceive(Context context, Intent intent) {
+      mRgNavigator.check(intent.getIntExtra(A.string.EXTRA_TAB_INDEX, R.id.rb_frame_item_one));
+    }
+  };
 
-	private FragmentTabOne mFrgOne;
-	private FragmentManager mFrgManager;
-	private FragmentTabTwo mFrgTwo;
-	private FragmentTabThree mFrgThree;
-	private FragmentTabFour mFrgFour;
+  private FragmentTabOne mFrgOne;
+  private FragmentManager mFrgManager;
+  private FragmentTabTwo mFrgTwo;
+  private FragmentTabThree mFrgThree;
+  private FragmentTabFour mFrgFour;
 
-	@Override
-	public int layoutResId() {
-		return R.layout.activity_frame;
-	}
+  @Override public int layoutResId() {
+    return R.layout.activity_frame;
+  }
 
-	@Override
-	public void initViews() {
+  @Override public void initViews() {
 
-		LocalBroadcastManager.getInstance(getBaseContext()).registerReceiver(mTabChangeReceiver,
-				new IntentFilter(A.string.BROADCAST_RECEIVER_TAB_CHANGE));
-		mBtnLeft.setVisibility(View.GONE);
-		mFrgManager = getSupportFragmentManager();
-		mFrgOne = new FragmentTabOne();
-		mFrgTwo = new FragmentTabTwo();
-		mFrgThree = new FragmentTabThree();
-		mFrgFour = new FragmentTabFour();
-		startService(new Intent(getApplicationContext(), TimeoutService.class));
+    LocalBroadcastManager.getInstance(getBaseContext())
+        .registerReceiver(mTabChangeReceiver,
+            new IntentFilter(A.string.BROADCAST_RECEIVER_TAB_CHANGE));
+    mBtnLeft.setVisibility(View.GONE);
+    mFrgManager = getSupportFragmentManager();
+    mFrgOne = new FragmentTabOne();
+    mFrgTwo = new FragmentTabTwo();
+    mFrgThree = new FragmentTabThree();
+    mFrgFour = new FragmentTabFour();
+    startService(new Intent(getApplicationContext(), TimeoutService.class));
 
-		mRgNavigator.check(R.id.rb_frame_item_one);
-	}
+    mRgNavigator.check(R.id.rb_frame_item_one);
+  }
 
-	@OnCheckedChanged({R.id.rb_frame_item_one, R.id.rb_frame_item_two, R.id.rb_frame_item_three,
-							  R.id.rb_frame_item_four})
-	public void onCheckedChanged(CompoundButton button, boolean isChecked) {
-		if (isChecked) {
-			switch (button.getId()) {
-				case R.id.rb_frame_item_one:
-					mFrgManager.beginTransaction()
-							.replace(R.id.fl_fragment_container, mFrgOne)
-							.commit();
-					break;
-				case R.id.rb_frame_item_two:
-					mFrgManager.beginTransaction()
-							.replace(R.id.fl_fragment_container, mFrgTwo)
-							.commit();
-					break;
-				case R.id.rb_frame_item_three:
-					mFrgManager.beginTransaction()
-							.replace(R.id.fl_fragment_container, mFrgThree)
-							.commit();
-					break;
-				case R.id.rb_frame_item_four:
-					mFrgManager.beginTransaction()
-							.replace(R.id.fl_fragment_container, mFrgFour)
-							.commit();
-					break;
-				default:
-					mFrgManager.beginTransaction()
-							.replace(R.id.fl_fragment_container, mFrgOne)
-							.commit();
-					break;
-			}
-		}
-	}
+  @OnCheckedChanged({
+      R.id.rb_frame_item_one, R.id.rb_frame_item_two, R.id.rb_frame_item_three,
+      R.id.rb_frame_item_four
+  }) public void onCheckedChanged(CompoundButton button, boolean isChecked) {
+    if (isChecked) {
+      switch (button.getId()) {
+        case R.id.rb_frame_item_one:
+          mFrgManager.beginTransaction().replace(R.id.fl_fragment_container, mFrgOne).commit();
+          break;
+        case R.id.rb_frame_item_two:
+          mFrgManager.beginTransaction().replace(R.id.fl_fragment_container, mFrgTwo).commit();
+          break;
+        case R.id.rb_frame_item_three:
+          mFrgManager.beginTransaction().replace(R.id.fl_fragment_container, mFrgThree).commit();
+          break;
+        case R.id.rb_frame_item_four:
+          mFrgManager.beginTransaction().replace(R.id.fl_fragment_container, mFrgFour).commit();
+          break;
+        default:
+          mFrgManager.beginTransaction().replace(R.id.fl_fragment_container, mFrgOne).commit();
+          break;
+      }
+    }
+  }
 
-	@Override
-	public void onDestroy() {
+  @Override public void onDestroy() {
 
-		LocalBroadcastManager.getInstance(getBaseContext()).unregisterReceiver(mTabChangeReceiver);
-	}
+    LocalBroadcastManager.getInstance(getBaseContext()).unregisterReceiver(mTabChangeReceiver);
+  }
 }
